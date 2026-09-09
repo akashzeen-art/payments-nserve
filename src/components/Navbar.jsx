@@ -5,8 +5,9 @@ import { useScroll } from '../hooks/useScroll';
 
 const navLinks = [
   { label: 'Home', href: '#top' },
-  { label: 'About Us', href: '#about' },
+  { label: 'Convert', href: '#solutions' },
   { label: 'Corridors', href: '#map' },
+  { label: 'About Us', href: '#about' },
   { label: 'Contact', href: '#cta' },
 ];
 

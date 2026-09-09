@@ -7,6 +7,7 @@ const CONTACT_PHONE_TEL = '+971529692827';
 
 const navLinks = [
   { label: 'Home', href: '#top' },
+  { label: 'Convert', href: '#solutions' },
   { label: 'About', href: '#about' },
   { label: 'Corridors', href: '#map' },
   { label: 'Contact', href: '#cta' },
