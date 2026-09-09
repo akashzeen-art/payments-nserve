@@ -292,16 +292,13 @@ function PlatformShell({
     offset: ['start start', 'end start'],
   });
 
-  // As the next card scrolls over, this one gently scales back and dims
-  const scale = useTransform(scrollYProgress, [0, 0.85], [1, isLast ? 1 : 0.9]);
-  const y = useTransform(scrollYProgress, [0, 0.85], [0, isLast ? 0 : -18]);
-  const filter = useTransform(scrollYProgress, [0, 0.85], [
-    'brightness(1)',
-    isLast ? 'brightness(1)' : 'brightness(0.72)',
-  ]);
+  // As the next card scrolls over, this one gently scales back
+  const scale = useTransform(scrollYProgress, [0, 0.9], [1, isLast ? 1 : 0.88]);
+  const y = useTransform(scrollYProgress, [0, 0.9], [0, isLast ? 0 : -24]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.9], [0, isLast ? 0 : 0.35]);
 
-  const stickyTop = `calc(5.25rem + ${stackIndex * 0.65}rem)`;
-  const cardHeight = `calc(100svh - 5.75rem - ${stackIndex * 0.65}rem)`;
+  const stickyTop = `calc(5.25rem + ${stackIndex * 0.7}rem)`;
+  const cardHeight = `calc(100svh - 5.85rem - ${stackIndex * 0.7}rem)`;
 
   return (
     <div
@@ -309,23 +306,25 @@ function PlatformShell({
       className="relative"
       style={{
         zIndex: stackIndex + 1,
-        // Tall runway so each card stays pinned while you scroll into the next
-        height: isLast ? 'auto' : '115vh',
-        marginBottom: isLast ? 0 : '-12vh',
+        height: isLast ? cardHeight : '120vh',
+        marginBottom: isLast ? '2rem' : '-18vh',
       }}
     >
       <motion.div
         id={id}
-        className="sticky left-0 flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-[0_28px_70px_-28px_rgba(15,23,42,0.35)] will-change-transform"
+        className="sticky left-0 flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-[0_28px_70px_-28px_rgba(15,23,42,0.35)] will-change-transform origin-top"
         style={{
           top: stickyTop,
-          height: isLast ? cardHeight : cardHeight,
-          minHeight: isLast ? cardHeight : undefined,
+          height: cardHeight,
           scale,
           y,
-          filter,
         }}
       >
+        <motion.div
+          className="pointer-events-none absolute inset-0 z-20 bg-slate-900 rounded-2xl sm:rounded-3xl"
+          style={{ opacity: overlayOpacity }}
+          aria-hidden="true"
+        />
         <div
           className="absolute inset-0"
           style={{
