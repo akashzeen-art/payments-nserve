@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming Soon | nSERVE</title>
+    <meta
+      name="description"
+      content="nSERVE — Connecting People. Payments. Processes. Across Borders. Our new experience is launching soon."
+    />
+    <meta name="theme-color" content="#F5F7FB" />
+    <link rel="icon" type="image/png" href="./assets/nservelogo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="glow glow-a" aria-hidden="true"></div>
+    <div class="glow glow-b" aria-hidden="true"></div>
+
+    <main class="page">
+      <header class="brand">
+        <img src="./assets/nservelogo.png" alt="n-SERVE" class="logo" />
+      </header>
+
+      <p class="eyebrow">Launching soon</p>
+
+      <h1>
+        Something powerful is
+        <span class="gradient">on the way.</span>
+      </h1>
+
+      <p class="lede">
+        nSERVE is building a technology-enabled coordination layer for cross-border
+        repatriation and payments — connecting people, processes and stakeholders
+        across borders.
+      </p>
+
+      <ul class="highlights" aria-label="nSERVE highlights">
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <p>
+            Every payment has a journey.
+            <strong>nSERVE connects every step.</strong>
+          </p>
+        </li>
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <p>
+            Different countries, different currencies
+            <strong>and one connected process — nSERVE.</strong>
+          </p>
+        </li>
+      </ul>
+
+      <div class="countdown" aria-label="Countdown to launch">
+        <div class="unit">
+          <span id="days">00</span>
+          <small>Days</small>
+        </div>
+        <div class="unit">
+          <span id="hours">00</span>
+          <small>Hours</small>
+        </div>
+        <div class="unit">
+          <span id="minutes">00</span>
+          <small>Minutes</small>
+        </div>
+        <div class="unit">
+          <span id="seconds">00</span>
+          <small>Seconds</small>
+        </div>
+      </div>
+
+      <form class="notify" id="notify-form">
+        <label class="sr-only" for="email">Email address</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          placeholder="Enter your email for launch updates"
+          autocomplete="email"
+        />
+        <button type="submit">Notify me</button>
+      </form>
+      <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+
+      <div class="pillars" aria-label="nSERVE principles">
+        <span>Secure</span>
+        <span>Transparent</span>
+        <span>Connected</span>
+        <span>Efficient</span>
+        <span>Reliable</span>
+      </div>
+
+      <footer class="footer">
+        <p>© 2026 nSERVE. All rights reserved.</p>
+        <a href="mailto:hello@nserve.com">hello@nserve.com</a>
+      </footer>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

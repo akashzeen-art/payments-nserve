@@ -1,0 +1,66 @@
+/**
+ * Replace `videoUrl` with your hosted MP4/CDN URLs when ready.
+ * Thumbnails can be swapped for branded stills.
+ */
+export const testimonials = [
+  {
+    id: 1,
+    name: 'Sarah Williams',
+    title: 'CFO',
+    company: 'Global Commerce Co.',
+    country: '🇬🇧',
+    quote: 'Global payments became dramatically simpler for our finance team. Settlement times dropped from days to minutes.',
+    thumbnail: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80',
+    videoUrl: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+  },
+  {
+    id: 2,
+    name: 'Arjun Mehta',
+    title: 'Head of Treasury',
+    company: 'TechScale India',
+    country: '🇮🇳',
+    quote: 'The INR to USD corridor is seamless. Our vendor payments are now fully automated and transparent.',
+    thumbnail: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80',
+    videoUrl: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+  },
+  {
+    id: 3,
+    name: 'Lena Hoffmann',
+    title: 'VP Finance',
+    company: 'EuroTrade GmbH',
+    country: '🇩🇪',
+    quote: 'We process multi-currency payrolls across 12 countries. This platform handles it all without friction.',
+    thumbnail: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&q=80',
+    videoUrl: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+  },
+  {
+    id: 4,
+    name: 'Marcus Chen',
+    title: 'CEO',
+    company: 'SingaPay Solutions',
+    country: '🇸🇬',
+    quote: 'The API integration took less than a day. Our customers now receive funds in real time across Southeast Asia.',
+    thumbnail: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
+    videoUrl: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+  },
+  {
+    id: 5,
+    name: 'Fatima Al-Rashid',
+    title: 'Director of Operations',
+    company: 'Gulf Ventures',
+    country: '🇦🇪',
+    quote: "Cross-border compliance used to be our biggest headache. Now it's handled automatically with full audit trails.",
+    thumbnail: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80',
+    videoUrl: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+  },
+  {
+    id: 6,
+    name: "James O'Brien",
+    title: 'CTO',
+    company: 'FinStack Australia',
+    country: '🇦🇺',
+    quote: "Reliability is everything in payments. 99.99% uptime isn't a marketing claim — we've experienced it firsthand.",
+    thumbnail: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80',
+    videoUrl: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+  },
+];

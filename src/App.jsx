@@ -1,40 +1,21 @@
-import { useEffect, useState } from "react";
-import Preloader from "./components/Preloader.jsx";
-import CosmicScene from "./components/CosmicScene.jsx";
-import ComingSoon from "./components/ComingSoon.jsx";
+import { useState, lazy, Suspense } from 'react';
+import Home from './pages/Home';
 
-const PRELOADER_MS = 4200;
+const GlobePreloader = lazy(() => import('./components/GlobePreloader'));
 
 export default function App() {
-  const [preloaderDone, setPreloaderDone] = useState(false);
-
-  useEffect(() => {
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    document.body.classList.add("is-loading");
-
-    const finish = () => {
-      document.body.classList.remove("is-loading");
-      document.body.classList.add("is-ready");
-      setPreloaderDone(true);
-    };
-
-    if (reduceMotion) {
-      finish();
-      return undefined;
-    }
-
-    const timer = window.setTimeout(finish, PRELOADER_MS);
-    return () => window.clearTimeout(timer);
-  }, []);
+  const [booting, setBooting] = useState(true);
 
   return (
     <>
-      <Preloader done={preloaderDone} />
-      <CosmicScene />
-      <ComingSoon />
+      {booting && (
+        <Suspense fallback={<div className="fixed inset-0 z-[100] bg-[#F5F7FB]" aria-hidden />}>
+          <GlobePreloader onDone={() => setBooting(false)} />
+        </Suspense>
+      )}
+      <div className={booting ? 'invisible' : 'visible'}>
+        <Home />
+      </div>
     </>
   );
 }
