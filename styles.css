@@ -635,9 +635,11 @@ body.is-ready .brand {
 }
 
 body.is-ready .launch {
-  animation:
-    rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both,
-    launch-blink 1.15s step-start 1s infinite;
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+body.is-ready .launch__time {
+  animation: launch-blink 1.15s step-start 1s infinite;
 }
 
 @keyframes launch-blink {
@@ -647,7 +649,7 @@ body.is-ready .launch {
   }
   50%,
   100% {
-    opacity: 0.18;
+    opacity: 0.15;
   }
 }
 
@@ -760,7 +762,8 @@ body.is-ready .notify {
     animation: none !important;
   }
 
-  body.is-ready .launch {
+  body.is-ready .launch__time {
+    animation: none !important;
     opacity: 1;
   }
 
