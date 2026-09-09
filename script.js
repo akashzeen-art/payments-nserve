@@ -35,11 +35,23 @@
 
   const launchAt = getLaunchAt();
   const hoursEl = document.querySelector('[data-unit="hours"]');
+  const minutesEl = document.querySelector('[data-unit="minutes"]');
+  const secondsEl = document.querySelector('[data-unit="seconds"]');
+
+  function pad(n) {
+    return String(Math.max(0, n)).padStart(2, "0");
+  }
 
   function tick() {
     const remaining = Math.max(0, launchAt - Date.now());
-    const hours = Math.max(1, Math.ceil(remaining / (1000 * 60 * 60)));
-    hoursEl.textContent = String(hours);
+    const totalSeconds = Math.floor(remaining / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    hoursEl.textContent = pad(hours);
+    minutesEl.textContent = pad(minutes);
+    secondsEl.textContent = pad(seconds);
   }
 
   tick();
@@ -59,22 +71,9 @@
   });
 
   /* ——— 3D marquee copy ——— */
-  const marqueeCopy = `<p>If you can <span>send</span> across borders when others still wait;
-If you can <span>clear</span> payments when markets lose faith;
-If you can <span>trust</span> the rails when all systems doubt you,
-But make <span>room</span> for every currency too;
-If you can <span>settle</span> and not be tired by settling,
-Or, being delayed, still deliver on <span>time</span>;
-If you can <span>scale</span>—and not make scale your master;
-If you can <span>build</span>—and not make tools your aim;
-If you can meet with <span>volume</span> and <span>velocity</span>
-And treat those two partners just the same;
-If you can bear to hear the <span>truth</span> of fees
-<span>Twisted</span> by middlemen to trap the small,
-Or watch old banking broken,
-And <span>rebuild</span> it better for us all;
-Then yours is the <span>world</span> of money in motion—
-And more—you'll move it with <span>Payments. Nserve</span>.</p>`;
+  const line =
+    'Revealing <span>New</span> Payments Solutions, <span>Everyday!</span>';
+  const marqueeCopy = `<p>${Array(48).fill(line).join("     ·     ")}</p>`;
 
   document.querySelectorAll(".text").forEach((div) => {
     div.innerHTML = marqueeCopy;

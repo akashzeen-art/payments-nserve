@@ -102,13 +102,25 @@
 
     <main class="stage">
       <p class="brand">Payments.<span>Nserve</span></p>
-      <h1 class="launch launch--blink" id="countdown" aria-live="polite">
-        Launching in
-        <span class="launch__time">
-          <span data-unit="hours">22</span>
-          hours
-        </span>
-      </h1>
+      <div class="launch">
+        <p class="launch__label">Launching in</p>
+        <h1 class="timer" id="countdown" aria-live="polite">
+          <span class="timer__block">
+            <span class="timer__value" data-unit="hours">22</span>
+            <span class="timer__unit">hours</span>
+          </span>
+          <span class="timer__sep" aria-hidden="true">:</span>
+          <span class="timer__block">
+            <span class="timer__value" data-unit="minutes">00</span>
+            <span class="timer__unit">min</span>
+          </span>
+          <span class="timer__sep" aria-hidden="true">:</span>
+          <span class="timer__block">
+            <span class="timer__value" data-unit="seconds">00</span>
+            <span class="timer__unit">sec</span>
+          </span>
+        </h1>
+      </div>
       <p class="lede">Revealing New Payments Solutions, Everyday!</p>
       <form class="notify" id="notify-form" novalidate>
         <label class="sr-only" for="email">Email address</label>
