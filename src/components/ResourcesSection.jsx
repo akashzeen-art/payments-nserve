@@ -17,7 +17,7 @@ const resources = [
   {
     icon: HelpCircle,
     title: 'FAQs',
-    desc: 'Answers on settlement, FX spreads, KYC, and onboarding.',
+    desc: 'Answers on settlement, rate spreads, KYC, and onboarding.',
     href: '#',
   },
   {

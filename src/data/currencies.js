@@ -15,7 +15,7 @@ export const currencies = [
   { code: 'CHF', name: 'Swiss Franc', symbol: 'Fr', country: 'Switzerland', flag: '🇨🇭' },
 ];
 
-/** Mock mid-market rates vs USD. Replace with a live FX API later. */
+/** Mock mid-market rates vs USD. Replace with a live rates API later. */
 export const exchangeRates = {
   USD: 1,
   EUR: 0.845,

@@ -13,9 +13,9 @@ const milestones = [
   {
     id: 'phase-2',
     label: 'Phase 02',
-    title: 'Africa FX',
+    title: 'Africa Liquidity',
     date: 'Q2',
-    desc: 'Liquidity rails activated across priority African markets for inward and outward FX.',
+    desc: 'Liquidity rails activated across priority African markets for inward and outward payments.',
     color: '#9EC400',
   },
   {

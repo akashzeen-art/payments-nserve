@@ -83,7 +83,7 @@ const forexProblems = [
   {
     icon: BadgeDollarSign,
     title: 'High conversion cost',
-    desc: 'Fragmented FX routes and opaque spreads quietly erode working capital on every transfer.',
+    desc: 'Fragmented currency routes and opaque spreads quietly erode working capital on every transfer.',
   },
   {
     icon: Clock3,
@@ -101,7 +101,7 @@ const marketTrends = [
   {
     index: '01',
     title: 'Rising volatility, fewer conventional channels',
-    body: 'More currencies are becoming difficult — or impossible — to convert through traditional banking rails. As commodity pressure rises, central banks hold tighter to FX reserves, making offshore settlements even harder.',
+    body: 'More currencies are becoming difficult — or impossible — to convert through traditional banking rails. As commodity pressure rises, central banks hold tighter to currency reserves, making offshore settlements even harder.',
     implication:
       'Businesses struggle to meet USD and EUR obligations to suppliers, or to repatriate profits with confidence.',
   },
@@ -229,7 +229,7 @@ const whyNserve = [
   },
   {
     title: 'Built for complexity',
-    desc: 'Designed for repatriation, FX and restricted corridors — not just easy markets.',
+    desc: 'Designed for repatriation, currency conversion and restricted corridors — not just easy markets.',
   },
   {
     title: 'Speed with control',
@@ -492,12 +492,12 @@ function CardTwo({ accent }) {
       accent={accent}
       index="02"
       stackIndex={1}
-      title="Cross-border FX"
+      title="Cross-border currency"
       subtitle="Liquidity across Africa — and beyond"
-      lead="Inward and outward FX payments executed in under 24 hours."
+      lead="Inward and outward payments executed in under 24 hours."
     >
       <motion.p className="text-sm sm:text-base text-slate-700 leading-relaxed" {...fadeUp(0.05)}>
-        nSERVE provides FX liquidity across most African markets — and selected corridors worldwide —
+        nSERVE provides currency liquidity across most African markets — and selected corridors worldwide —
         for both inward and outward payments. Our objective is simple: move cross-border value
         securely, with speed, clarity and fewer intermediaries.
       </motion.p>
@@ -599,7 +599,7 @@ function CardTwo({ accent }) {
       >
         <Globe2 className="shrink-0 mt-0.5" size={18} style={{ color: accent }} />
         <p className="text-sm text-slate-600 leading-relaxed">
-          Capability spans core African corridors and additional FX markets on request — including
+          Capability spans core African corridors and additional currency markets on request — including
           complex environments where convertibility, documentation and speed usually break
           traditional payment journeys.
         </p>
@@ -810,7 +810,7 @@ function CardFour({ accent }) {
             </h4>
           </div>
           <p className="text-sm text-slate-600 leading-relaxed max-w-xl">
-            Talk to nSERVE about repatriation coordination, FX liquidity and a connected process
+            Talk to nSERVE about repatriation coordination, currency liquidity and a connected process
             built for complex cross-border operations.
           </p>
         </div>
@@ -829,7 +829,7 @@ function CardFour({ accent }) {
 
 const platforms = [
   { id: '01', label: 'nSERVE', color: '#1D4ED8' },
-  { id: '02', label: 'FX', color: '#EA580C' },
+  { id: '02', label: 'Currency', color: '#EA580C' },
   { id: '03', label: 'Compliance', color: '#0EA5E9' },
   { id: '04', label: 'Journey', color: '#EF4444' },
 ];
@@ -873,7 +873,7 @@ export default function ParallaxServices() {
           viewport={{ once: true }}
           transition={{ duration: 0.55, delay: 0.1, ease }}
         >
-          Four connected layers — from repatriation coordination to FX liquidity, compliance and the
+          Four connected layers — from repatriation coordination to currency liquidity, compliance and the
           full payment journey.
         </motion.p>
 

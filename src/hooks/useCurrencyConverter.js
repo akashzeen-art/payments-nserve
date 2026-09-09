@@ -2,7 +2,7 @@ import { useMemo, useState, useCallback } from 'react';
 import { exchangeRates, transferFees } from '../data/currencies';
 
 /**
- * Demo FX converter. Replace `exchangeRates` fetch with a live API
+ * Demo currency converter. Replace `exchangeRates` fetch with a live API
  * (e.g. getRates()) without changing the component contract.
  */
 export function useCurrencyConverter(initial = { amount: '10000', from: 'USD', to: 'NGN' }) {
