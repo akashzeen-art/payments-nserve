@@ -167,7 +167,7 @@ export default function CrossBorderVideo() {
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.12, ease }}
           >
-            Hover to play. Scroll to feel the corridor story shift in parallax.
+            
           </motion.p>
         </div>
 
