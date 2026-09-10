@@ -1,12 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  ArrowDown,
-  ArrowRight,
-  Clock,
-  Shield,
-  TrendingUp,
-  CheckCircle2,
-} from 'lucide-react';
+import { ArrowDown, ArrowRight } from 'lucide-react';
 import { useCurrencyConverter } from '../hooks/useCurrencyConverter';
 import { currencies } from '../data/currencies';
 import CurrencySelector from './CurrencySelector';
@@ -25,30 +18,6 @@ function formatMoney(value) {
   if (Number.isNaN(n)) return '0.00';
   return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
-
-const highlights = [
-  {
-    icon: TrendingUp,
-    title: 'Competitive Rates',
-    desc: 'Mid-market rates with a small transparent fee. No markup surprises.',
-  },
-  {
-    icon: Clock,
-    title: 'Fast Settlement',
-    desc: 'Most transfers settle within minutes. Priority corridors can be near-instant.',
-  },
-  {
-    icon: Shield,
-    title: 'Secure & Compliant',
-    desc: 'Bank-grade encryption with compliance controls designed for regulated markets.',
-  },
-];
-
-const trustPoints = [
-  'Transparent fees shown upfront',
-  'Corridor-ready currency pairs',
-  'Demo today — live rates when connected',
-];
 
 export default function CurrencyConverter() {
   const {
@@ -321,49 +290,12 @@ export default function CurrencyConverter() {
                 Visibility. Structure.
                 <span className="block text-gradient mt-1">Control across borders.</span>
               </h3>
-              <p className="text-slate-600 leading-relaxed text-base sm:text-lg max-w-md">
-                Explore demo conversion flows across nSERVE corridor currencies. Connect a live
-                market-data API when you are ready for production rates.
-              </p>
             </motion.div>
-
-            <motion.ul className="space-y-2.5" {...fadeUp(0.2)} aria-label="Transfer benefits">
-              {trustPoints.map((point) => (
-                <li key={point} className="flex items-start gap-2.5 text-sm text-slate-600">
-                  <CheckCircle2
-                    size={16}
-                    className="mt-0.5 text-orange-600 shrink-0"
-                    strokeWidth={2}
-                  />
-                  {point}
-                </li>
-              ))}
-            </motion.ul>
-
-            <div className="space-y-0 border-t border-slate-200">
-              {highlights.map(({ icon: Icon, title, desc }, i) => (
-                <motion.div
-                  key={title}
-                  className="group flex gap-4 py-5 border-b border-slate-200"
-                  {...fadeUp(0.24 + i * 0.07)}
-                >
-                  <div className="mt-0.5 w-11 h-11 rounded-2xl bg-slate-900 text-white flex items-center justify-center shrink-0 group-hover:bg-orange-600 transition-colors duration-300 shadow-sm">
-                    <Icon size={17} strokeWidth={1.85} />
-                  </div>
-                  <div className="min-w-0 pt-0.5">
-                    <div className="text-slate-900 font-semibold mb-1 font-display text-base sm:text-lg">
-                      {title}
-                    </div>
-                    <div className="text-slate-600 text-sm leading-relaxed">{desc}</div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
 
             <motion.a
               href="#map"
               className="inline-flex items-center gap-2 text-sm font-semibold text-orange-600 hover:text-orange-500 transition-colors"
-              {...fadeUp(0.45)}
+              {...fadeUp(0.2)}
             >
               View corridor map
               <ArrowRight size={15} />
