@@ -10,7 +10,7 @@ import { Pause, Play, Volume2, VolumeX } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 const VIDEO_SRC =
-  'https://vz-7fee017a-811.b-cdn.net/38c6cd12-2dc2-4349-84a7-908b1ef6c2fa/play_720p.mp4';
+  'https://vz-7fee017a-811.b-cdn.net/9bd4283a-d69a-4d09-bf95-e7dc02e2541d/play_480p.mp4';
 
 const ease = [0.22, 1, 0.36, 1];
 
