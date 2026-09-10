@@ -5,14 +5,6 @@ const CONTACT_EMAIL = 'Vivek@nserevetech.com';
 const CONTACT_PHONE = '+971 52 969 2827';
 const CONTACT_PHONE_TEL = '+971529692827';
 
-const navLinks = [
-  { label: 'Home', href: '#top' },
-  { label: 'Convert', href: '#solutions' },
-  { label: 'About', href: '#about' },
-  { label: 'Corridors', href: '#map' },
-  { label: 'Contact', href: '#cta' },
-];
-
 const ease = [0.22, 1, 0.36, 1];
 
 export default function Footer() {
@@ -61,21 +53,6 @@ export default function Footer() {
               <span className="text-slate-900 font-medium">Processes.</span>
               <span className="block mt-1 text-gradient font-medium">Across Borders.</span>
             </p>
-
-            <nav
-              className="mt-8 flex flex-wrap gap-x-5 gap-y-2"
-              aria-label="Footer navigation"
-            >
-              {navLinks.map(({ label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  className="text-sm text-slate-500 hover:text-orange-600 transition-colors duration-200"
-                >
-                  {label}
-                </a>
-              ))}
-            </nav>
           </div>
 
           {/* Contact */}
@@ -133,15 +110,8 @@ export default function Footer() {
           </div>
         </motion.div>
 
-        <div className="mt-12 pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div className="mt-12 pt-6 border-t border-slate-200/80 text-center">
           <p className="text-slate-500 text-sm">© 2026 nSERVE. All rights reserved.</p>
-          <a
-            href="#top"
-            className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-orange-600 transition-colors"
-          >
-            Back to top
-            <span aria-hidden="true">↑</span>
-          </a>
         </div>
       </div>
     </footer>

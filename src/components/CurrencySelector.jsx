@@ -67,7 +67,7 @@ export default function CurrencySelector({ value, onChange, label }) {
 
   return (
     <div className="relative" ref={ref}>
-      <label className="block text-[11px] text-slate-500 mb-2 font-semibold uppercase tracking-[0.14em]">
+      <label className="block text-[10px] text-slate-500 mb-1.5 font-semibold uppercase tracking-[0.14em]">
         {label}
       </label>
       <button
@@ -77,7 +77,7 @@ export default function CurrencySelector({ value, onChange, label }) {
           setQuery('');
         }}
         onKeyDown={onKeyDown}
-        className={`w-full flex items-center justify-between gap-3 bg-white border rounded-xl px-4 py-3.5 transition-all duration-200 shadow-sm text-left ${
+        className={`w-full flex items-center justify-between gap-2.5 bg-white border rounded-lg px-3 py-2.5 transition-all duration-200 shadow-sm text-left ${
           open
             ? 'border-orange-400 ring-2 ring-orange-500/15'
             : 'border-slate-200 hover:border-orange-300 hover:bg-slate-50'
@@ -86,23 +86,23 @@ export default function CurrencySelector({ value, onChange, label }) {
         aria-expanded={open}
         aria-controls={listId}
       >
-        <div className="flex items-center gap-3 min-w-0">
+        <div className="flex items-center gap-2.5 min-w-0">
           <span
-            className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 border border-slate-200 text-xl leading-none shrink-0"
+            className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-50 border border-slate-200 text-base leading-none shrink-0"
             aria-hidden="true"
           >
             {selected.flag}
           </span>
           <div className="text-left min-w-0">
-            <div className="text-slate-900 font-semibold text-sm tracking-wide">
+            <div className="text-slate-900 font-semibold text-xs tracking-wide">
               {selected.code}
               <span className="text-slate-400 font-medium"> · {selected.symbol}</span>
             </div>
-            <div className="text-slate-500 text-xs truncate">{selected.name}</div>
+            <div className="text-slate-500 text-[11px] truncate">{selected.name}</div>
           </div>
         </div>
         <ChevronDown
-          size={16}
+          size={14}
           className={`text-slate-400 shrink-0 transition-transform duration-200 ${
             open ? 'rotate-180 text-orange-500' : ''
           }`}

@@ -6,41 +6,49 @@ const milestones = [
     id: 'phase-1',
     label: 'Phase 01',
     title: 'Foundation',
-    date: 'Q1',
-    desc: 'Corridor mapping, stakeholder model and compliance framework locked in.',
+    date: '01',
+    desc: 'Corridor mapping, currency model and compliance framework locked in.',
     color: '#7856AF',
   },
   {
     id: 'phase-2',
     label: 'Phase 02',
-    title: 'Africa Liquidity',
-    date: 'Q2',
-    desc: 'Liquidity rails activated across priority African markets for inward and outward payments.',
+    title: 'Due diligence',
+    date: '02',
+    desc: 'We have a swift and efficient fully digital due diligence process to make sure we comply to the most stringent international regulation.',
     color: '#9EC400',
   },
   {
     id: 'phase-3',
     label: 'Phase 03',
-    title: 'Platform Live',
-    date: 'Q3',
-    desc: 'Digital due diligence, account activation and trade execution open to partners.',
+    title: 'Account creation',
+    date: '03',
+    desc: 'Your account is created enabling you to pull most of the rates in real time.',
     color: '#32AFEA',
   },
   {
     id: 'phase-4',
     label: 'Phase 04',
-    title: 'Scale',
-    date: 'Q4',
-    desc: 'Expanded currency coverage, partner onboarding and end-to-end journey orchestration.',
+    title: 'Trade!',
+    date: '04',
+    desc: 'We execute your online or OTC trade.',
     color: '#C74F4F',
   },
   {
     id: 'phase-5',
     label: 'Phase 05',
-    title: 'Global Reach',
-    date: 'Next',
-    desc: 'Additional corridors on request — exotic and illiquid markets included.',
+    title: 'Scale',
+    date: '05',
+    desc: 'Expanded currency coverage, and end-to-end journey orchestration.',
     color: '#EA580C',
+  },
+  {
+    id: 'phase-6',
+    label: 'Phase 06',
+    title: 'Global Reach',
+    date: '06',
+    desc: 'Additional corridors on request — exotic and illiquid markets included.',
+    color: '#0EA5E9',
   },
 ];
 
@@ -156,7 +164,8 @@ export default function RolloutTimeline() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.25, ease }}
           >
-            Dates to know — how nSERVE scales from foundation to global corridors.
+            nSERVE at a Glance!
+
           </motion.p>
         </div>
 

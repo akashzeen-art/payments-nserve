@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { useCountUp, useInView } from '../hooks/useCountUp';
 
 const stats = [
-  { id: 'markets', target: 8, suffix: '', label: 'Priority Markets', decimals: 0 },
-  { id: 'currencies', target: 14, suffix: '+', label: 'Currencies', decimals: 0 },
+  { id: 'markets', target: 23, suffix: '', label: 'Priority Markets', decimals: 0 },
+  { id: 'currencies', target: 29, suffix: '', label: 'Currencies', decimals: 0 },
   { id: 'pillars', target: 5, suffix: '', label: 'Operating Pillars', decimals: 0 },
   { id: 'infra', target: 24, suffix: '/7', label: 'Coordination Layer', decimals: 0 },
 ];

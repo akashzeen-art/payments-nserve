@@ -168,18 +168,6 @@ export default function Hero() {
         <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-8 lg:gap-6 xl:gap-10 items-center">
           <div className="relative z-10 max-w-xl lg:max-w-[34rem] space-y-8">
             <motion.div className="space-y-5" {...fadeUp(0.05)}>
-              <div className="flex items-center gap-3.5">
-                <img
-                  src="/nservelogo.png"
-                  alt=""
-                  className="h-12 sm:h-14 w-auto object-contain"
-                  aria-hidden="true"
-                />
-                <p className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
-                  nSERVE
-                </p>
-              </div>
-
               <h1 className="font-display text-[2.15rem] sm:text-5xl lg:text-[3.15rem] xl:text-[3.4rem] font-bold leading-[1.08] tracking-tight text-slate-900">
                 Connecting People.
                 <span className="block">Payments. Processes.</span>

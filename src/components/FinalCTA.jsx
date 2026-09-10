@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 
 const CONTACT_EMAIL = 'Vivek@nserevetech.com';
 const CONTACT_PHONE = '+971 52 969 2827';
@@ -25,10 +25,14 @@ export default function FinalCTA() {
         >
           <p className="text-orange-600 text-xs font-semibold tracking-[0.2em] uppercase">Contact Us</p>
 
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
+          <motion.h2
+            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight"
+            animate={{ opacity: [1, 0.25, 1] }}
+            transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+          >
             Every payment has a journey.
             <span className="block text-gradient">nSERVE connects every step.</span>
-          </h2>
+          </motion.h2>
 
           <p className="text-slate-600 text-lg max-w-xl mx-auto">
             Reach out by email or phone — we&apos;ll help you connect people, payments and processes across borders.
@@ -53,16 +57,6 @@ export default function FinalCTA() {
               <Phone size={18} />
               {CONTACT_PHONE}
             </motion.a>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-4 pt-2">
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="inline-flex items-center gap-2 text-orange-600 hover:text-orange-500 font-semibold transition-colors"
-            >
-              Email us
-              <ArrowRight size={16} />
-            </a>
           </div>
         </motion.div>
       </div>

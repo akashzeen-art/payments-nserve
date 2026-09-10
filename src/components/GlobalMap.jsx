@@ -340,32 +340,6 @@ export default function GlobalMap() {
           </div>
         </motion.div>
 
-        <motion.div
-          className="mt-6 flex flex-wrap justify-start sm:justify-center gap-2"
-          {...fadeUp(0.2)}
-        >
-          {markets.map((m) => {
-            const active = selectedMarket === m.id;
-            return (
-              <button
-                key={m.id}
-                type="button"
-                onClick={() => setSelectedMarket((prev) => (prev === m.id ? null : m.id))}
-                className={`inline-flex items-center gap-1.5 text-xs sm:text-sm px-3 py-2 rounded-xl border transition-all duration-200 ${
-                  active
-                    ? 'bg-orange-50 border-orange-300 text-orange-800 shadow-sm'
-                    : 'border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300 bg-white/80'
-                }`}
-              >
-                <span aria-hidden="true">{m.flag}</span>
-                <span className="font-medium">
-                  {m.id} · {m.name}
-                </span>
-              </button>
-            );
-          })}
-        </motion.div>
-
         <StatsSection />
       </div>
     </section>

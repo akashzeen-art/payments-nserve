@@ -10,7 +10,7 @@ import { Pause, Play, Volume2, VolumeX } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 const VIDEO_SRC =
-  'https://vz-7fee017a-811.b-cdn.net/f9657f70-0e31-4f64-9f72-35a2ffcedd8c/play_480p.mp4';
+  'https://vz-7fee017a-811.b-cdn.net/38c6cd12-2dc2-4349-84a7-908b1ef6c2fa/play_720p.mp4';
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -244,17 +244,9 @@ export default function CrossBorderVideo() {
                     >
                       <Play size={28} className="ml-1" fill="currentColor" />
                     </motion.span>
-                    <div className="text-center">
-                      <p className="text-white font-display text-lg sm:text-xl font-semibold">
-                        {ready ? 'Hover to play' : 'Loading film…'}
-                      </p>
-                      <p className="text-white/65 text-sm mt-1 hidden sm:block">
-                        Scroll for parallax depth
-                      </p>
-                      <p className="text-white/65 text-sm mt-1 sm:hidden">
-                        Tap to play · scroll for depth
-                      </p>
-                    </div>
+                    {!ready && (
+                      <p className="text-white/80 text-sm font-medium">Loading…</p>
+                    )}
                   </motion.div>
                 )}
               </AnimatePresence>

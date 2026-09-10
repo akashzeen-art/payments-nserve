@@ -7,7 +7,7 @@ const navLinks = [
   { label: 'Home', href: '#top' },
   { label: 'Convert', href: '#solutions' },
   { label: 'Corridors', href: '#map' },
-  { label: 'About Us', href: '#about' },
+  { label: 'About Us', href: '#why-us' },
   { label: 'Contact', href: '#cta' },
 ];
 
@@ -40,10 +40,10 @@ export default function Navbar() {
       transition={{ duration: 0.55, ease }}
     >
       <div
-        className={`transition-all duration-500 ${
+        className={`transition-all duration-300 ${
           scrolled || mobileOpen
-            ? 'mx-3 sm:mx-4 mt-3 rounded-2xl border border-slate-200/80 bg-white/85 backdrop-blur-xl shadow-[0_12px_40px_-18px_rgba(15,23,42,0.25)]'
-            : 'mx-0 mt-0 rounded-none border-transparent bg-transparent shadow-none'
+            ? 'border-b border-slate-200/90 bg-white shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]'
+            : 'border-b border-transparent bg-transparent shadow-none'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[4.25rem] flex items-center justify-between gap-4">
@@ -55,13 +55,9 @@ export default function Navbar() {
           >
             <img
               src="/nservelogo.png"
-              alt=""
+              alt="nSERVE"
               className="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
-              aria-hidden="true"
             />
-            <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-slate-900">
-              nSERVE
-            </span>
           </a>
 
           <nav
@@ -91,7 +87,11 @@ export default function Navbar() {
 
             <button
               type="button"
-              className="md:hidden text-slate-800 p-2.5 rounded-xl border border-slate-200/80 bg-white/70 hover:bg-slate-50 transition-colors"
+              className={`md:hidden text-slate-800 p-2.5 rounded-xl border transition-colors ${
+                scrolled || mobileOpen
+                  ? 'border-slate-200 bg-slate-50 hover:bg-slate-100'
+                  : 'border-slate-200/80 bg-white/70 hover:bg-slate-50'
+              }`}
               onClick={() => setMobileOpen((v) => !v)}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
@@ -117,7 +117,7 @@ export default function Navbar() {
           {mobileOpen && (
             <motion.nav
               id="mobile-nav"
-              className="md:hidden border-t border-slate-200/80 px-4 pb-5 pt-2"
+              className="md:hidden border-t border-slate-200/80 px-4 pb-5 pt-2 bg-white"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}

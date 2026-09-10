@@ -272,13 +272,9 @@ export default function GlobePreloader({ onDone, durationMs = 3400 }) {
             >
               <img
                 src="/nservelogo.png"
-                alt=""
+                alt="nSERVE"
                 className="h-10 sm:h-12 w-auto object-contain"
-                aria-hidden="true"
               />
-              <span className="font-display text-xl sm:text-2xl font-bold tracking-tight text-slate-900">
-                nSERVE
-              </span>
             </motion.div>
 
             {/* Spacer pushes bottom UI down; globe stays centered */}

@@ -174,3 +174,130 @@
 .rollout-pulse-ring {
   animation: rolloutPulse 2.8s cubic-bezier(0.64, 0.05, 0.35, 1) infinite;
 }
+
+/* Why Us — connected scanner stream */
+.why-stream-band {
+  position: relative;
+  width: 100%;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(234, 88, 12, 0.12), transparent 55%),
+    radial-gradient(ellipse at 20% 40%, rgba(14, 165, 233, 0.1), transparent 45%),
+    linear-gradient(180deg, #0f172a 0%, #111827 50%, #0f172a 100%);
+  border-block: 1px solid rgba(148, 163, 184, 0.18);
+  overflow: hidden;
+}
+
+.why-stream-container {
+  position: relative;
+  width: 100%;
+  height: min(52vw, 340px);
+  min-height: 280px;
+  max-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-card-stream {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
+.why-card-line {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  white-space: nowrap;
+  cursor: grab;
+  user-select: none;
+  will-change: transform;
+  padding-inline: 24px;
+}
+
+.why-card-line.dragging,
+.why-card-line:active {
+  cursor: grabbing;
+}
+
+.why-card-wrapper {
+  position: relative;
+  width: 360px;
+  height: 220px;
+  flex-shrink: 0;
+}
+
+.why-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.why-card-normal {
+  z-index: 2;
+  background:
+    linear-gradient(145deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 58, 138, 0.75) 48%, rgba(154, 52, 18, 0.7) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  clip-path: inset(0 0 0 var(--clip-right, 0%));
+}
+
+.why-card-inner {
+  height: 100%;
+  padding: 18px 20px;
+  white-space: normal;
+  display: flex;
+  flex-direction: column;
+}
+
+.why-card-reveal {
+  z-index: 1;
+  background:
+    linear-gradient(145deg, rgba(124, 45, 18, 0.95) 0%, rgba(154, 52, 18, 0.88) 42%, rgba(15, 23, 42, 0.95) 100%);
+  border: 1px solid rgba(251, 146, 60, 0.35);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  clip-path: inset(0 calc(100% - var(--clip-left, 0%)) 0 0);
+}
+
+.why-scan-effect {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  z-index: 5;
+  background: linear-gradient(90deg, transparent, rgba(251, 146, 60, 0.45), rgba(56, 189, 248, 0.35), transparent);
+  animation: whyScanFlash 0.55s ease-out forwards;
+}
+
+@keyframes whyScanFlash {
+  0% { transform: translateX(-100%); opacity: 0; }
+  45% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+.why-scanner-canvas {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100vw;
+  height: 300px;
+  z-index: 15;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .why-card-wrapper {
+    width: 300px;
+    height: 200px;
+  }
+  .why-card-line {
+    gap: 32px;
+  }
+  .why-stream-container {
+    min-height: 250px;
+  }
+}

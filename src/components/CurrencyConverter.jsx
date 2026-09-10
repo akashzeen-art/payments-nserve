@@ -5,7 +5,6 @@ import {
   Clock,
   Shield,
   TrendingUp,
-  Sparkles,
   CheckCircle2,
 } from 'lucide-react';
 import { useCurrencyConverter } from '../hooks/useCurrencyConverter';
@@ -118,192 +117,148 @@ export default function CurrencyConverter() {
             />
 
             {/* Header */}
-            <div className="relative px-5 sm:px-7 pt-7 pb-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+            <div className="relative px-3.5 sm:px-4 py-3 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
               <div
-                className="absolute -top-20 -right-12 w-64 h-64 rounded-full blur-3xl opacity-45"
+                className="absolute -top-16 -right-10 w-40 h-40 rounded-full blur-3xl opacity-40"
                 style={{ background: 'radial-gradient(circle, #EA580C 0%, transparent 70%)' }}
                 aria-hidden="true"
               />
-              <div
-                className="absolute -bottom-24 left-8 w-56 h-56 rounded-full blur-3xl opacity-30"
-                style={{ background: 'radial-gradient(circle, #0EA5E9 0%, transparent 70%)' }}
-                aria-hidden="true"
-              />
 
-              <div className="relative flex flex-wrap items-start justify-between gap-4">
-                <div className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 border border-white/10 text-orange-300">
-                    <Sparkles size={18} />
-                  </span>
-                  <div>
-                    <p className="text-[11px] uppercase tracking-[0.2em] text-white/45 mb-1">
-                      You send
-                    </p>
-                    <h3 className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight">
-                      Transfer preview
-                    </h3>
-                  </div>
-                </div>
-                <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] text-amber-100 bg-white/10 border border-white/15 px-3 py-1.5 rounded-xl">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute inset-0 rounded-full bg-amber-300 animate-ping opacity-60" />
-                    <span className="relative rounded-full h-1.5 w-1.5 bg-amber-300" />
-                  </span>
+              <div className="relative flex flex-wrap items-center justify-between gap-2">
+                <h3 className="font-display text-sm sm:text-base font-bold text-white tracking-tight">
+                  Transfer preview
+                </h3>
+                <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.12em] text-amber-100 bg-white/10 border border-white/15 px-2.5 py-1 rounded-lg">
+                  <span className="h-1.5 w-1.5 rounded-full bg-amber-300" />
                   Demo rates
                 </span>
               </div>
 
               {/* Corridor strip */}
-              <div className="relative mt-6 rounded-2xl border border-white/10 bg-white/5 p-3 sm:p-3.5">
-                <div className="flex items-center gap-2.5 sm:gap-3">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={fromCurrency}
-                      initial={{ opacity: 0, x: -8 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 8 }}
-                      transition={{ duration: 0.22 }}
-                      className="flex flex-1 items-center gap-2.5 rounded-xl bg-white/10 border border-white/10 px-3 py-2.5 min-w-0"
-                    >
-                      <span className="text-xl leading-none" aria-hidden="true">
-                        {from?.flag}
-                      </span>
-                      <div className="min-w-0">
-                        <div className="text-white font-semibold text-sm tracking-wide">
-                          {fromCurrency}
-                        </div>
-                        <div className="text-white/40 text-[11px] truncate">{from?.name}</div>
+              <div className="relative mt-3 flex items-center gap-2">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={fromCurrency}
+                    initial={{ opacity: 0, x: -6 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 6 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex flex-1 items-center gap-2 rounded-lg bg-white/10 border border-white/10 px-2.5 py-2 min-w-0"
+                  >
+                    <span className="text-lg leading-none" aria-hidden="true">
+                      {from?.flag}
+                    </span>
+                    <div className="min-w-0">
+                      <div className="text-white font-semibold text-sm tracking-wide">
+                        {fromCurrency}
                       </div>
-                    </motion.div>
-                  </AnimatePresence>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
 
-                  <div className="hidden sm:flex flex-[0.7] items-center min-w-[2rem]" aria-hidden="true">
-                    <div className="h-px flex-1 bg-gradient-to-r from-white/20 via-orange-400/80 to-sky-400/70" />
-                    <motion.span
-                      className="mx-1 h-2 w-2 rounded-full bg-orange-400 shadow-[0_0_12px_rgba(234,88,12,0.8)]"
-                      animate={{ x: [0, 6, 0], opacity: [0.65, 1, 0.65] }}
-                      transition={{ duration: 1.7, repeat: Infinity, ease: 'easeInOut' }}
-                    />
-                    <div className="h-px flex-1 bg-gradient-to-r from-sky-400/70 to-white/15" />
-                  </div>
+                <ArrowRight size={14} className="text-orange-300 shrink-0" aria-hidden="true" />
 
-                  <div className="sm:hidden flex items-center justify-center shrink-0" aria-hidden="true">
-                    <ArrowRight size={16} className="text-orange-300" />
-                  </div>
-
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={toCurrency}
-                      initial={{ opacity: 0, x: 8 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -8 }}
-                      transition={{ duration: 0.22 }}
-                      className="flex flex-1 items-center gap-2.5 rounded-xl bg-white/10 border border-white/10 px-3 py-2.5 min-w-0"
-                    >
-                      <span className="text-xl leading-none" aria-hidden="true">
-                        {to?.flag}
-                      </span>
-                      <div className="min-w-0">
-                        <div className="text-white font-semibold text-sm tracking-wide">
-                          {toCurrency}
-                        </div>
-                        <div className="text-white/40 text-[11px] truncate">{to?.name}</div>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={toCurrency}
+                    initial={{ opacity: 0, x: 6 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -6 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex flex-1 items-center gap-2 rounded-lg bg-white/10 border border-white/10 px-2.5 py-2 min-w-0"
+                  >
+                    <span className="text-lg leading-none" aria-hidden="true">
+                      {to?.flag}
+                    </span>
+                    <div className="min-w-0">
+                      <div className="text-white font-semibold text-sm tracking-wide">
+                        {toCurrency}
                       </div>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
 
-            <div className="p-5 sm:p-7 space-y-0">
+            <div className="p-3 sm:p-3.5 space-y-0">
               {/* Send block */}
-              <div className="rounded-2xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-4 sm:p-5 space-y-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
+              <div className="rounded-lg border border-slate-200 bg-slate-50/80 p-2.5 sm:p-3 space-y-2.5">
                 <div className="flex items-center justify-between gap-3">
                   <label
                     htmlFor="send-amount"
-                    className="text-[11px] text-slate-500 font-semibold uppercase tracking-[0.14em]"
+                    className="text-[10px] text-slate-500 font-semibold uppercase tracking-[0.14em]"
                   >
                     You send
                   </label>
-                  <span className="text-[11px] text-slate-400">
+                  <span className="text-[10px] text-slate-400 truncate">
                     {from?.flag} {from?.country}
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <div className="flex-1 flex items-baseline gap-2 min-w-0">
-                    <span className="text-slate-400 font-display text-2xl sm:text-3xl font-semibold shrink-0">
-                      {from?.symbol}
-                    </span>
-                    <input
-                      id="send-amount"
-                      type="number"
-                      inputMode="decimal"
-                      value={amount}
-                      onChange={(e) => setAmount(e.target.value)}
-                      min="0"
-                      step="0.01"
-                      className="w-full bg-transparent text-slate-900 font-display text-3xl sm:text-4xl font-bold outline-none placeholder:text-slate-300 caret-orange-600"
-                      aria-label="Amount to send"
-                    />
-                  </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-400 font-display text-lg sm:text-xl font-semibold shrink-0">
+                    {from?.symbol}
+                  </span>
+                  <input
+                    id="send-amount"
+                    type="number"
+                    inputMode="decimal"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                    min="0"
+                    step="0.01"
+                    className="w-full bg-transparent text-slate-900 font-display text-xl sm:text-2xl font-bold outline-none placeholder:text-slate-300 caret-orange-600"
+                    aria-label="Amount to send"
+                  />
                 </div>
 
                 <CurrencySelector value={fromCurrency} onChange={setFromCurrency} label="From" />
               </div>
 
               {/* Swap */}
-              <div className="relative flex items-center justify-center -my-1 py-1 z-10">
-                <div className="absolute inset-x-12 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+              <div className="relative flex items-center justify-center -my-0.5 py-0.5 z-10">
+                <div className="absolute inset-x-10 h-px bg-slate-200" />
                 <motion.button
                   type="button"
                   onClick={swap}
-                  className="relative z-10 w-12 h-12 rounded-2xl bg-orange-600 hover:bg-orange-500 text-white flex items-center justify-center shadow-lg shadow-orange-600/30 border-[3px] border-white"
+                  className="relative z-10 w-8 h-8 rounded-lg bg-orange-600 hover:bg-orange-500 text-white flex items-center justify-center shadow-md shadow-orange-600/25 border-[3px] border-white"
                   whileHover={{ rotate: 180, scale: 1.05 }}
                   whileTap={{ scale: 0.94 }}
                   transition={{ type: 'spring', stiffness: 280, damping: 18 }}
                   aria-label="Swap currencies"
                 >
-                  <ArrowDownUp size={18} />
+                  <ArrowDownUp size={14} />
                 </motion.button>
               </div>
 
               {/* Receive block */}
-              <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 space-y-4">
+              <div className="rounded-lg border border-slate-200 bg-white p-2.5 sm:p-3 space-y-2.5">
                 <CurrencySelector value={toCurrency} onChange={setToCurrency} label="To" />
 
-                <div className="relative overflow-hidden rounded-2xl border border-orange-200/80 bg-gradient-to-br from-orange-50 via-white to-sky-50/70 p-5">
-                  <div
-                    className="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-orange-400/15 blur-2xl"
-                    aria-hidden="true"
-                  />
-                  <div
-                    className="absolute -left-8 -bottom-10 w-28 h-28 rounded-full bg-sky-400/10 blur-2xl"
-                    aria-hidden="true"
-                  />
+                <div className="relative overflow-hidden rounded-lg border border-orange-200/80 bg-gradient-to-br from-orange-50 via-white to-sky-50/70 p-2.5 sm:p-3">
                   <div className="relative">
-                    <div className="flex items-center justify-between gap-3 mb-2">
-                      <div className="text-[11px] uppercase tracking-[0.14em] text-slate-500 font-semibold">
+                    <div className="flex items-center justify-between gap-3 mb-0.5">
+                      <div className="text-[10px] uppercase tracking-[0.14em] text-slate-500 font-semibold">
                         Recipient gets
                       </div>
-                      <span className="text-[11px] text-slate-400">
+                      <span className="text-[10px] text-slate-400 truncate">
                         {to?.flag} {to?.country}
                       </span>
                     </div>
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={`${result}-${toCurrency}`}
-                        initial={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.28, ease }}
-                        className="font-display text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight"
+                        exit={{ opacity: 0, y: -6 }}
+                        transition={{ duration: 0.22, ease }}
+                        className="font-display text-xl sm:text-2xl font-bold text-slate-900 tracking-tight"
                       >
                         {to?.symbol}
                         {formatMoney(result)}
                       </motion.div>
                     </AnimatePresence>
-                    <div className="text-sm text-slate-600 mt-2">
+                    <div className="text-[11px] text-slate-600 mt-0.5">
                       {to?.code} — {to?.name}
                     </div>
                   </div>
@@ -311,7 +266,7 @@ export default function CurrencyConverter() {
               </div>
 
               {/* Meta */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-slate-200/80 rounded-2xl overflow-hidden border border-slate-200 mt-5">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-slate-200/80 rounded-lg overflow-hidden border border-slate-200 mt-2.5">
                 {[
                   {
                     label: 'Exchange Rate',
@@ -327,12 +282,12 @@ export default function CurrencyConverter() {
                     accent: true,
                   },
                 ].map(({ label, value, accent }) => (
-                  <div key={label} className="bg-white px-4 py-4">
-                    <div className="text-[10px] uppercase tracking-[0.12em] text-slate-500 mb-1.5">
+                  <div key={label} className="bg-white px-2.5 py-2.5">
+                    <div className="text-[9px] uppercase tracking-[0.12em] text-slate-500 mb-0.5">
                       {label}
                     </div>
                     <div
-                      className={`text-sm font-semibold leading-snug ${
+                      className={`text-xs font-semibold leading-snug ${
                         accent ? 'text-sky-600' : 'text-slate-900'
                       }`}
                     >
@@ -344,18 +299,18 @@ export default function CurrencyConverter() {
 
               <motion.a
                 href="#cta"
-                className="group mt-5 flex w-full items-center justify-center gap-2 bg-orange-600 hover:bg-orange-500 text-white font-semibold py-4 rounded-2xl transition-all duration-200 hover:shadow-xl hover:shadow-orange-500/25"
+                className="group mt-2.5 flex w-full items-center justify-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-sm font-semibold py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-orange-500/25"
                 whileHover={{ y: -1 }}
                 whileTap={{ scale: 0.985 }}
               >
                 Send Money Now
                 <ArrowRight
-                  size={18}
+                  size={15}
                   className="transition-transform duration-200 group-hover:translate-x-0.5"
                 />
               </motion.a>
 
-              <p className="pt-3.5 text-center text-xs text-slate-400 leading-relaxed">
+              <p className="pt-2 text-center text-[11px] text-slate-400 leading-relaxed">
                 Demo conversion only — figures update as you change amount or corridor.
               </p>
             </div>
