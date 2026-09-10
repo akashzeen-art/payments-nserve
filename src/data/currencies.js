@@ -52,7 +52,7 @@ export const forexPresence = [
   'NPR',
 ];
 
-/** Mock mid-market rates vs USD. Replace with a live rates API later. */
+/** Fallback mid-market rates vs USD if open.er-api.com is unavailable. */
 export const exchangeRates = {
   USD: 1,
   EUR: 0.845,

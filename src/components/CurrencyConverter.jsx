@@ -35,6 +35,7 @@ export default function CurrencyConverter() {
     result,
     fee,
     rate,
+    ratesStatus,
   } = useCurrencyConverter();
 
   const from = currencies.find((c) => c.code === fromCurrency);
@@ -102,8 +103,20 @@ export default function CurrencyConverter() {
                   Transfer preview
                 </h3>
                 <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.12em] text-amber-100 bg-white/10 border border-white/15 px-2.5 py-1 rounded-lg">
-                  <span className="h-1.5 w-1.5 rounded-full bg-amber-300" />
-                  Demo rates
+                  <span
+                    className={`h-1.5 w-1.5 rounded-full ${
+                      ratesStatus === 'live'
+                        ? 'bg-emerald-300'
+                        : ratesStatus === 'loading'
+                          ? 'bg-amber-300 animate-pulse'
+                          : 'bg-slate-300'
+                    }`}
+                  />
+                  {ratesStatus === 'live'
+                    ? 'Live rates'
+                    : ratesStatus === 'loading'
+                      ? 'Loading rates'
+                      : 'Cached rates'}
                 </span>
               </div>
 
@@ -284,7 +297,11 @@ export default function CurrencyConverter() {
               </motion.a>
 
               <p className="pt-2 text-center text-[11px] text-slate-400 leading-relaxed">
-                Demo conversion only — figures update as you change amount or corridor.
+                {ratesStatus === 'live'
+                  ? 'Live mid-market rates — figures update as you change amount or corridor.'
+                  : ratesStatus === 'loading'
+                    ? 'Fetching live rates… showing last known values meanwhile.'
+                    : 'Using fallback rates — live market data unavailable right now.'}
               </p>
             </div>
           </motion.div>
