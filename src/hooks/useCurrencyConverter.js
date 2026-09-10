@@ -2,13 +2,13 @@ import { useMemo, useState, useCallback } from 'react';
 import { exchangeRates, transferFees } from '../data/currencies';
 
 /**
- * Demo currency converter. Replace `exchangeRates` fetch with a live API
- * (e.g. getRates()) without changing the component contract.
+ * Demo currency converter. Always converts other currencies → USD.
+ * Replace `exchangeRates` fetch with a live API without changing the component contract.
  */
-export function useCurrencyConverter(initial = { amount: '10000', from: 'USD', to: 'NGN' }) {
+export function useCurrencyConverter(initial = { amount: '10000', from: 'NGN' }) {
   const [amount, setAmount] = useState(initial.amount);
-  const [fromCurrency, setFromCurrency] = useState(initial.from);
-  const [toCurrency, setToCurrency] = useState(initial.to);
+  const [fromCurrency, setFromCurrency] = useState(initial.from === 'USD' ? 'NGN' : initial.from);
+  const toCurrency = 'USD';
 
   const convert = useCallback((amt, from, to) => {
     const n = Math.max(parseFloat(amt) || 0, 0);
@@ -25,10 +25,10 @@ export function useCurrencyConverter(initial = { amount: '10000', from: 'USD', t
     };
   }, []);
 
-  const swap = useCallback(() => {
-    setFromCurrency(toCurrency);
-    setToCurrency(fromCurrency);
-  }, [fromCurrency, toCurrency]);
+  const setFromCurrencySafe = useCallback((code) => {
+    if (code === 'USD') return;
+    setFromCurrency(code);
+  }, []);
 
   const { result, fee, rate, netAmount } = useMemo(
     () => convert(amount, fromCurrency, toCurrency),
@@ -39,13 +39,13 @@ export function useCurrencyConverter(initial = { amount: '10000', from: 'USD', t
     amount,
     setAmount,
     fromCurrency,
-    setFromCurrency,
+    setFromCurrency: setFromCurrencySafe,
     toCurrency,
-    setToCurrency,
+    setToCurrency: () => {},
     result,
     fee,
     rate,
     netAmount,
-    swap,
+    swap: () => {},
   };
 }

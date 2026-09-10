@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  ArrowDownUp,
+  ArrowDown,
   ArrowRight,
   Clock,
   Shield,
@@ -57,11 +57,9 @@ export default function CurrencyConverter() {
     fromCurrency,
     setFromCurrency,
     toCurrency,
-    setToCurrency,
     result,
     fee,
     rate,
-    swap,
   } = useCurrencyConverter();
 
   const from = currencies.find((c) => c.code === fromCurrency);
@@ -212,28 +210,28 @@ export default function CurrencyConverter() {
                   />
                 </div>
 
-                <CurrencySelector value={fromCurrency} onChange={setFromCurrency} label="From" />
+                <CurrencySelector
+                  value={fromCurrency}
+                  onChange={setFromCurrency}
+                  label="From"
+                  exclude={['USD']}
+                />
               </div>
 
-              {/* Swap */}
+              {/* Direction indicator — always other → USD */}
               <div className="relative flex items-center justify-center -my-0.5 py-0.5 z-10">
                 <div className="absolute inset-x-10 h-px bg-slate-200" />
-                <motion.button
-                  type="button"
-                  onClick={swap}
-                  className="relative z-10 w-8 h-8 rounded-lg bg-orange-600 hover:bg-orange-500 text-white flex items-center justify-center shadow-md shadow-orange-600/25 border-[3px] border-white"
-                  whileHover={{ rotate: 180, scale: 1.05 }}
-                  whileTap={{ scale: 0.94 }}
-                  transition={{ type: 'spring', stiffness: 280, damping: 18 }}
-                  aria-label="Swap currencies"
+                <div
+                  className="relative z-10 w-8 h-8 rounded-lg bg-orange-600 text-white flex items-center justify-center shadow-md shadow-orange-600/25 border-[3px] border-white"
+                  aria-hidden="true"
                 >
-                  <ArrowDownUp size={14} />
-                </motion.button>
+                  <ArrowDown size={14} />
+                </div>
               </div>
 
               {/* Receive block */}
               <div className="rounded-lg border border-slate-200 bg-white p-2.5 sm:p-3 space-y-2.5">
-                <CurrencySelector value={toCurrency} onChange={setToCurrency} label="To" />
+                <CurrencySelector value={toCurrency} onChange={() => {}} label="To" locked />
 
                 <div className="relative overflow-hidden rounded-lg border border-orange-200/80 bg-gradient-to-br from-orange-50 via-white to-sky-50/70 p-2.5 sm:p-3">
                   <div className="relative">

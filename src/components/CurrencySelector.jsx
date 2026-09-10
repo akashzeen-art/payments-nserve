@@ -3,7 +3,13 @@ import { Search, ChevronDown, X, Check } from 'lucide-react';
 import { currencies } from '../data/currencies';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function CurrencySelector({ value, onChange, label }) {
+export default function CurrencySelector({
+  value,
+  onChange,
+  label,
+  exclude = [],
+  locked = false,
+}) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
@@ -11,7 +17,9 @@ export default function CurrencySelector({ value, onChange, label }) {
   const listId = useId();
   const selected = currencies.find((c) => c.code === value) || currencies[0];
 
-  const filtered = currencies.filter((c) => {
+  const available = currencies.filter((c) => !exclude.includes(c.code));
+
+  const filtered = available.filter((c) => {
     const q = query.toLowerCase();
     return (
       c.code.toLowerCase().includes(q) ||
@@ -39,6 +47,7 @@ export default function CurrencySelector({ value, onChange, label }) {
   };
 
   const onKeyDown = (e) => {
+    if (locked) return;
     if (!open) {
       if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -72,19 +81,23 @@ export default function CurrencySelector({ value, onChange, label }) {
       </label>
       <button
         type="button"
+        disabled={locked}
         onClick={() => {
+          if (locked) return;
           setOpen((v) => !v);
           setQuery('');
         }}
         onKeyDown={onKeyDown}
         className={`w-full flex items-center justify-between gap-2.5 bg-white border rounded-lg px-3 py-2.5 transition-all duration-200 shadow-sm text-left ${
-          open
-            ? 'border-orange-400 ring-2 ring-orange-500/15'
-            : 'border-slate-200 hover:border-orange-300 hover:bg-slate-50'
+          locked
+            ? 'border-slate-200 cursor-default opacity-95'
+            : open
+              ? 'border-orange-400 ring-2 ring-orange-500/15'
+              : 'border-slate-200 hover:border-orange-300 hover:bg-slate-50'
         }`}
-        aria-haspopup="listbox"
-        aria-expanded={open}
-        aria-controls={listId}
+        aria-haspopup={locked ? undefined : 'listbox'}
+        aria-expanded={locked ? undefined : open}
+        aria-controls={locked ? undefined : listId}
       >
         <div className="flex items-center gap-2.5 min-w-0">
           <span
@@ -101,16 +114,18 @@ export default function CurrencySelector({ value, onChange, label }) {
             <div className="text-slate-500 text-[11px] truncate">{selected.name}</div>
           </div>
         </div>
-        <ChevronDown
-          size={14}
-          className={`text-slate-400 shrink-0 transition-transform duration-200 ${
-            open ? 'rotate-180 text-orange-500' : ''
-          }`}
-        />
+        {locked ? null : (
+          <ChevronDown
+            size={14}
+            className={`text-slate-400 shrink-0 transition-transform duration-200 ${
+              open ? 'rotate-180 text-orange-500' : ''
+            }`}
+          />
+        )}
       </button>
 
       <AnimatePresence>
-        {open && (
+        {!locked && open && (
           <motion.div
             className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-200 rounded-2xl shadow-2xl shadow-slate-900/12 z-50 overflow-hidden"
             initial={{ opacity: 0, y: -8, scale: 0.98 }}
