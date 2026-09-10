@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowDown, ArrowRight } from 'lucide-react';
+import { ArrowDown, ArrowRight, Clock, Shield, TrendingUp } from 'lucide-react';
 import { useCurrencyConverter } from '../hooks/useCurrencyConverter';
 import { currencies } from '../data/currencies';
 import CurrencySelector from './CurrencySelector';
@@ -18,6 +18,12 @@ function formatMoney(value) {
   if (Number.isNaN(n)) return '0.00';
   return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
+
+const highlights = [
+  { icon: TrendingUp, title: 'Competitive Rates' },
+  { icon: Clock, title: 'Fast Settlement' },
+  { icon: Shield, title: 'Secure & Compliant' },
+];
 
 export default function CurrencyConverter() {
   const {
@@ -292,10 +298,27 @@ export default function CurrencyConverter() {
               </h3>
             </motion.div>
 
+            <div className="space-y-0 border-t border-slate-200">
+              {highlights.map(({ icon: Icon, title }, i) => (
+                <motion.div
+                  key={title}
+                  className="group flex items-center gap-4 py-5 border-b border-slate-200"
+                  {...fadeUp(0.22 + i * 0.07)}
+                >
+                  <div className="w-11 h-11 rounded-2xl bg-slate-900 text-white flex items-center justify-center shrink-0 group-hover:bg-orange-600 transition-colors duration-300 shadow-sm">
+                    <Icon size={17} strokeWidth={1.85} />
+                  </div>
+                  <div className="text-slate-900 font-semibold font-display text-base sm:text-lg">
+                    {title}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
             <motion.a
               href="#map"
               className="inline-flex items-center gap-2 text-sm font-semibold text-orange-600 hover:text-orange-500 transition-colors"
-              {...fadeUp(0.2)}
+              {...fadeUp(0.45)}
             >
               View corridor map
               <ArrowRight size={15} />
