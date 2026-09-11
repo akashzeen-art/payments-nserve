@@ -33,8 +33,6 @@ export default function CurrencyConverter() {
     setFromCurrency,
     toCurrency,
     result,
-    fee,
-    rate,
     ratesStatus,
   } = useCurrencyConverter();
 
@@ -249,38 +247,6 @@ export default function CurrencyConverter() {
                     </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Meta */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-slate-200/80 rounded-lg overflow-hidden border border-slate-200 mt-2.5">
-                {[
-                  {
-                    label: 'Exchange Rate',
-                    value: `1 ${fromCurrency} = ${rate} ${toCurrency}`,
-                  },
-                  {
-                    label: 'Transfer Fee',
-                    value: `${from?.symbol}${formatMoney(fee)}`,
-                  },
-                  {
-                    label: 'Estimated Arrival',
-                    value: 'Within minutes',
-                    accent: true,
-                  },
-                ].map(({ label, value, accent }) => (
-                  <div key={label} className="bg-white px-2.5 py-2.5">
-                    <div className="text-[9px] uppercase tracking-[0.12em] text-slate-500 mb-0.5">
-                      {label}
-                    </div>
-                    <div
-                      className={`text-xs font-semibold leading-snug ${
-                        accent ? 'text-sky-600' : 'text-slate-900'
-                      }`}
-                    >
-                      {value}
-                    </div>
-                  </div>
-                ))}
               </div>
 
               <motion.a
